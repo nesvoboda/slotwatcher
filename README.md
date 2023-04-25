@@ -1,4 +1,4 @@
-# slotwatcher
+# 🔍 slotwatcher
 
 Watch for corrections in 42 intra.
 
