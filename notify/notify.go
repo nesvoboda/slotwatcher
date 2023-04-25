@@ -2,9 +2,10 @@ package notify
 
 import (
 	"fmt"
-	"log"
 	"net/http"
 	"os"
+
+	"github.com/charmbracelet/log"
 
 	"github.com/nesvoboda/slotwatch/slot"
 )
@@ -21,6 +22,9 @@ func makeMessage(slot slot.Slot) string {
 
 	return message
 }
+
+var botToken string
+var chatId string
 
 func Init() {
 	botToken := os.Getenv("TELEGRAM_TOKEN")
@@ -40,9 +44,13 @@ func Send(slot slot.Slot) {
 	// send a telegram bot message
 	url := fmt.Sprintf(
 		"https://api.telegram.org/bot%s/sendMessage?chat_id=%s&text=%s",
-		os.Getenv("TELEGRAM_TOKEN"),
-		os.Getenv("TELEGRAM_CHAT_ID"),
+		botToken,
+		chatId,
 		message,
 	)
-	http.Get(url)
+	_, err := http.Get(url)
+	if err != nil {
+		log.Error(err)
+	}
+	log.Debug("Sent message: ", message, " to chat: ", chatId)
 }
