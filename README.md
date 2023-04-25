@@ -1,4 +1,4 @@
 # slotwatcher
 
 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/mVRkpS)
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/qfidmK)
