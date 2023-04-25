@@ -40,7 +40,19 @@ func Init() {
 
 func Send(slot slot.Slot) {
 	message := makeMessage(slot)
+	sendMessage(message)
+}
 
+func StartMessage(projectName string, teamId string) {
+	message := fmt.Sprintf(
+		"Starting watcher for project %s, team %s",
+		projectName,
+		teamId,
+	)
+	sendMessage(message)
+}
+
+func sendMessage(message string) {
 	// send a telegram bot message
 	url := fmt.Sprintf(
 		"https://api.telegram.org/bot%s/sendMessage?chat_id=%s&text=%s",

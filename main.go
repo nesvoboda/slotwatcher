@@ -28,6 +28,8 @@ func main() {
 
 	log.Info("Starting watcher")
 
+	notify.StartMessage(projectName, teamId)
+
 	watch(projectName, teamId, cookie)
 }
 
