@@ -27,8 +27,8 @@ var botToken string
 var chatId string
 
 func Init() {
-	botToken := os.Getenv("TELEGRAM_TOKEN")
-	chatId := os.Getenv("TELEGRAM_CHAT_ID")
+	botToken = os.Getenv("TELEGRAM_TOKEN")
+	chatId = os.Getenv("TELEGRAM_CHAT_ID")
 
 	if botToken == "" {
 		log.Fatal("TELEGRAM_TOKEN is not set")
